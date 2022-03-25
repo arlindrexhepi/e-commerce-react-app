@@ -1,17 +1,21 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const App = () => {
   return (
     <BrowserRouter>
-      <header>Header component</header>
+      <Header />
       <main>
         <Routes>
           <Route path="/*" element={<NotFound />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 };

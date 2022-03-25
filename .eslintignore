@@ -1,4 +1,5 @@
 node_modules
 react-app-env.d.ts
+tailwind.config.js
 dist
 coverage
