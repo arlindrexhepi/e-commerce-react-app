@@ -1,16 +1,15 @@
 import { useState, useEffect } from "react";
 
 const TopLoader: React.FC = () => {
-  const [loaderWidth, setLoaderWidth] = useState<number>(0);
-  const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [loaderWidth, setLoaderWidth] = useState<number>(1);
 
   useEffect(() => {
     const increaseWidth = () => {
-      if (loaderWidth > 80) {
-        setShowLoader(false);
+      if (loaderWidth >= 95) {
+        setLoaderWidth(0);
         return;
       }
-      setLoaderWidth((prev) => prev + 20);
+      setLoaderWidth((prev) => prev + 19);
     };
     const widthInterval = setInterval(increaseWidth, 500);
 
@@ -19,10 +18,7 @@ const TopLoader: React.FC = () => {
     };
   }, [loaderWidth]);
   return (
-    <div
-      id="top-loader-container"
-      className={!showLoader ? "invisible" : "bg-white"}
-    >
+    <div id="top-loader-container" className="bg-white">
       <div
         id="top-loader"
         className="bg-primary"

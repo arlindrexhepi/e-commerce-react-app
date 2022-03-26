@@ -16,32 +16,37 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
   showSearchBar
 }) => {
   return (
-    <div className="flex items-center text-4xl text-black">
+    <div className="flex items-center text-5xl text-black">
       {!showSearchBar ? (
         <AiOutlineSearch
           onClick={showSearchBarHandler}
-          className="md:hidden mx-1 md:mx-3 hover:bg-darkGrey
-       cursor-pointer p-2 rounded-full"
+          className="md:hidden mx-1 md:mx-3 hover:bg-lightGrey
+       lg:cursor-pointer p-3 rounded-full"
         />
       ) : (
         <AiOutlineClose
           onClick={showSearchBarHandler}
-          className="md:hidden mx-1 md:mx-3 hover:bg-darkGrey
-        cursor-pointer p-2 rounded-full"
+          className="md:hidden mx-1 md:mx-3 hover:bg-lightGrey
+        lg:cursor-pointer p-3 rounded-full"
         />
       )}
       <AiOutlineHeart
-        className="mx-1 md:mx-3 hover:bg-darkGrey
-       cursor-pointer p-2 rounded-full"
+        className="mx-1 md:mx-3 hover:bg-lightGrey
+       lg:cursor-pointer p-3 rounded-full"
       />
       <AiOutlineUser
-        className="mx-1 md:mx-3 hover:bg-darkGrey
-       cursor-pointer p-2 rounded-full"
+        className="mx-1 md:mx-3 hover:bg-lightGrey
+       lg:cursor-pointer p-3 rounded-full"
       />
-      <AiOutlineShopping
-        className="mx-1 md:mx-3 hover:bg-darkGrey
-       cursor-pointer p-2 rounded-full"
-      />
+      <div
+        className="flex items-center mx-1 pr-2 py-2 md:mx-3 
+        hover:bg-lightGrey lg:cursor-pointer rounded-full"
+      >
+        <AiOutlineShopping className="p-3" />
+        <div className="text-xl font-semibold">
+          <span>$0.00</span>
+        </div>
+      </div>
     </div>
   );
 };

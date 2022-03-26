@@ -4,11 +4,13 @@ import StoreUpdates from "./StoreUpdates";
 import NavLeftSide from "./NavLeftSide";
 import SearchBar from "./SearchBar";
 import NavRightSide from "./NavRightSide";
-import TopLoader from "../ui/TopLoader";
+import NavMenu from "./NavMenu";
+// import TopLoader from "../ui/TopLoader";
 
 const Header = () => {
   const [showStoreUpdate, setShowStoreUpdate] = useState<boolean>(false);
   const [showSearchBar, setShowSearchBar] = useState<boolean>(true);
+  // const [showLoader, setShowLoader] = useState<boolean>(false);
 
   const showStoreUpdateHandler = () => {
     setShowStoreUpdate(true);
@@ -18,12 +20,15 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white mb-1 shadow">
+    <header className="bg-white mb-1 lg:mb-0 shadow lg:shadow-none">
       {!showStoreUpdate && (
         <StoreUpdates showStoreUpdateHandler={showStoreUpdateHandler} />
       )}
-      <TopLoader />
-      <div className="side-space relative flex items-center justify-between">
+      {/* {showLoader && <TopLoader />} */}
+      <div
+        className="side-space py-4 relative flex items-center
+       justify-between"
+      >
         <NavLeftSide />
         {showSearchBar && <SearchBar />}
         <NavRightSide
@@ -31,6 +36,10 @@ const Header = () => {
           showSearchBarHandler={showSearchBarHandler}
         />
       </div>
+      <NavMenu
+        className="hidden lg:block bg-primary text-white 
+      font-semibold"
+      />
     </header>
   );
 };
