@@ -1,0 +1,80 @@
+[
+  {
+    "TV & Audio": {
+      "Televisions": [
+        { "type": "Smart TVs" },
+        { "type": "4K TVs" },
+        { "type": "Full HD TVs" },
+        { "type": "Large Screen TVs" },
+        { "type": "32 inch TVs" },
+        { "type": "39-43 inch TVs" }
+      ],
+      "Home Audio/Video": [
+        { "type": "Speakers" },
+        { "type": "Home Theaters" },
+        { "type": "Projectors" },
+        { "type": "Headphones" },
+        { "type": "Noise Cancelling Headphones" },
+        { "type": "Soundbars" },
+        { "type": "Headphones wit}h Mic" }
+      ],
+      "Shop By Brand": [
+        { "name": "VU" },
+        { "name": "Philips" },
+        { "name": "Samsung" },
+        { "name": "Panasonic" },
+        { "name": "TCL" },
+        { "name": "Sony" },
+        { "name": "LG" }
+      ],
+      "Other Home Entertainment": [
+        { "type": "Home Theater Systems" },
+        { "type": "Projectors & Accessories" },
+        { "type": "Set top Boxes" },
+        { "type": "Streaming Media Players" },
+        { "type": "DVD & Blue-ray Players" },
+        { "type": "Cables" },
+        { "type": "Audio-video Accesories" }
+      ]
+    }
+  },
+  {
+    "Smartphones": {
+      "Televisions": [
+        { "type": "Smart TVs" },
+        { "type": "4K TVs" },
+        { "type": "Full HD TVs" },
+        { "type": "Large Screen TVs" },
+        { "type": "32 inch TVs" },
+        { "type": "39-43 inch TVs" }
+      ],
+      "Home Audio/Video": [
+        { "type": "Speakers" },
+        { "type": "Home Theaters" },
+        { "type": "Projectors" },
+        { "type": "Headphones" },
+        { "type": "Noise Cancelling Headphones" },
+        { "type": "Soundbars" },
+        { "type": "Headphones wit}h Mic" }
+      ],
+      "Shop By Brand": [
+        { "name": "VU" },
+        { "name": "Philips" },
+        { "name": "Samsung" },
+        { "name": "Panasonic" },
+        { "name": "TCL" },
+        { "name": "Sony" },
+        { "name": "LG" }
+      ],
+      "Other Home Entertainment": [
+        { "type": "Home Theater Systems" },
+        { "type": "Projectors & Accessories" },
+        { "type": "Set top Boxes" },
+        { "type": "Streaming Media Players" },
+        { "type": "DVD & Blue-ray Players" },
+        { "type": "Cables" },
+        { "type": "Audio-video Accesories" }
+      ]
+    }
+  }
+]
