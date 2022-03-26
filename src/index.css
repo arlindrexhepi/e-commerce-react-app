@@ -1,9 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+
+#store-logo {
+  font-family: "Open Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: -3.5px;
+}
+#top-loader-container {
+  position: relative;
+  width: 100%;
+  height: 3px;
+  transition-property: visibility, opacity;
+  transition: 0.7s linear;
+}
+#top-loader-container.invisible {
+  opacity: 0;
+}
+#top-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: width 0.8s ease-in-out;
+}
+@media screen and (min-width: 768px) {
+  #store-logo {
+    font-size: 50px;
+  }
+}
 
 @layer components {
   .main-container {
     @apply container min-h-[90vh];
+  }
+  .side-space {
+    @apply py-4 mx-[2%];
   }
 }
