@@ -5,7 +5,7 @@ import NavLeftSide from "./NavLeftSide";
 import SearchBar from "./SearchBar";
 import NavRightSide from "./NavRightSide";
 import NavMenu from "./NavMenu";
-// import TopLoader from "../ui/TopLoader";
+// import Loader from "../ui/Loader";
 
 const Header = () => {
   const [showStoreUpdate, setShowStoreUpdate] = useState<boolean>(false);
@@ -24,7 +24,7 @@ const Header = () => {
       {!showStoreUpdate && (
         <StoreUpdates showStoreUpdateHandler={showStoreUpdateHandler} />
       )}
-      {/* {showLoader && <TopLoader />} */}
+      {/* {showLoader && <Loader />} */}
       <div
         className="side-space py-4 relative flex items-center
        justify-between"

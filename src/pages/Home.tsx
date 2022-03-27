@@ -1,7 +1,7 @@
-const Home: React.FC = () => {
+const Home = () => {
   return (
-    <div className="main-container">
-      <div className="w-full flex items-center justify-center">HOME</div>
+    <div className="main-container bg-white">
+      <h2>Home</h2>
     </div>
   );
 };
