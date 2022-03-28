@@ -42,7 +42,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
         className="flex items-center mx-1 pr-2 py-2 md:mx-3 
         hover:bg-lightGrey lg:cursor-pointer rounded-full"
       >
-        <AiOutlineShopping className="p-3" />
+        <AiOutlineShopping className="hidden md:block p-3" />
         <div className="text-xl font-semibold">
           <span>$0.00</span>
         </div>
