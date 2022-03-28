@@ -20,27 +20,32 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white mb-1 lg:mb-0 shadow lg:shadow-none">
+    <>
       {!showStoreUpdate && (
         <StoreUpdates showStoreUpdateHandler={showStoreUpdateHandler} />
       )}
-      {/* {showLoader && <Loader />} */}
-      <div
-        className="side-space py-4 relative flex items-center
-       justify-between"
+      <header
+        className="sticky top-0 z-10 bg-white mb-1 lg:mb-0 shadow
+       lg:shadow-none"
       >
-        <NavLeftSide />
-        {showSearchBar && <SearchBar />}
-        <NavRightSide
-          showSearchBar={showSearchBar}
-          showSearchBarHandler={showSearchBarHandler}
-        />
-      </div>
+        {/* {showLoader && <Loader />} */}
+        <div
+          className="side-space py-4 relative flex items-center
+       justify-between"
+        >
+          <NavLeftSide />
+          {showSearchBar && <SearchBar />}
+          <NavRightSide
+            showSearchBar={showSearchBar}
+            showSearchBarHandler={showSearchBarHandler}
+          />
+        </div>
+      </header>
       <NavMenu
         className="hidden lg:block bg-primary text-white 
-      font-semibold"
+  font-semibold"
       />
-    </header>
+    </>
   );
 };
 
