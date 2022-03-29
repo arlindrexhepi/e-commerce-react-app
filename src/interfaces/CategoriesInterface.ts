@@ -1,5 +1,10 @@
-interface CategpriesInterface {
-  categories: object[];
+export interface CategoriesDataInterface {
+  name: string;
+  childs: SubCategoriesInterface[];
+  images: string[];
 }
 
-export default CategpriesInterface;
+export interface SubCategoriesInterface {
+  name: string;
+  subChilds: string[];
+}

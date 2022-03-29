@@ -4,7 +4,7 @@ import StoreUpdates from "./StoreUpdates";
 import NavLeftSide from "./NavLeftSide";
 import SearchBar from "./SearchBar";
 import NavRightSide from "./NavRightSide";
-import NavMenu from "./NavMenu";
+import Categories from "./Categories";
 // import Loader from "../ui/Loader";
 
 const Header = () => {
@@ -41,7 +41,7 @@ const Header = () => {
           />
         </div>
       </header>
-      <NavMenu
+      <Categories
         className="hidden lg:block bg-primary text-white 
   font-semibold"
       />
