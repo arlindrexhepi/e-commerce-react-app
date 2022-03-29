@@ -46,7 +46,7 @@
     "react/prop-types": ["off"],
     "no-shadow": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "max-len": ["error", { "code": 80 }],
+    "max-len": ["error", { "code": 90 }],
     "no-const-assign": "error",
     "no-unused-vars": "error",
     "no-console": "warn",
