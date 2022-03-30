@@ -5,9 +5,6 @@ import data from "../../../data/categories";
 import Category from "./Category";
 import { CategoriesDataInterface } from "../../../interfaces/CategoriesInterface";
 
-import tvImage1 from "../../../assets/megamenu-image0-1.png";
-import tvImage2 from "../../../assets/megamenu-image1-1.png";
-
 interface CategoriesProps {
   className: string;
 }
@@ -27,7 +24,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
                 categoryTitle={category.name}
                 onSetShowAccordion={setShowAccordion}
                 showAccordion={showAccordion}
-                accordionImages={[tvImage1, tvImage2]}
+                accordionImages={category.images}
                 subCategories={category.childs}
               />
             );

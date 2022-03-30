@@ -39,7 +39,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
        lg:cursor-pointer p-3 rounded-full"
       />
       <div
-        className="flex items-center mx-1 pr-2 py-2 md:mx-3 
+        className="flex items-center mx-1 pr-2 py-2 md:mx-3 select-none
         hover:bg-lightGrey lg:cursor-pointer rounded-full"
       >
         <AiOutlineShopping className="hidden md:block p-3" />

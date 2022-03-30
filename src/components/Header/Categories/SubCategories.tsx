@@ -25,7 +25,7 @@ const SubCategories: React.FC<CategoriesInterface> = ({
         {subCategories.map((subCategory: SubCategoriesInterface) => {
           return (
             <div key={subCategory.name}>
-              <p className="text-lg font-semibold text-darkPrimary">
+              <p className="text-lg font-semibold text-secondary">
                 <Link to="/">{subCategory.name}</Link>
               </p>
               <ul>

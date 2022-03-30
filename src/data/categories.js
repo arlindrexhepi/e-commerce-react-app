@@ -55,7 +55,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/QqTsMSC", "https://imgur.com/h4UK6AP"]
+      images: [
+        "https://i.imgur.com/QqTsMSC.png",
+        "https://i.imgur.com/h4UK6AP.png"
+      ]
     },
     {
       name: "Smartphones",
@@ -114,7 +117,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/PW84izC"]
+      images: [
+        "https://i.imgur.com/PW84izC.png",
+        "https://i.imgur.com/noQWjbP.png"
+      ]
     },
     {
       name: "Laptops & Desktops",
@@ -172,7 +178,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/GBNXHkO"]
+      images: [
+        "https://i.imgur.com/GBNXHkO.png",
+        "https://i.imgur.com/E5CuB78.png"
+      ]
     },
     {
       name: "Gadgets",
@@ -237,7 +246,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/WZljLzC"]
+      images: [
+        "https://i.imgur.com/k3t9Gz5.png",
+        "https://i.imgur.com/WZljLzC.png"
+      ]
     },
     {
       name: "GPS & Car",
@@ -309,7 +321,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/0A8p6n5"]
+      images: [
+        "https://i.imgur.com/0A8p6n5.png",
+        "https://i.imgur.com/YanwXRB.png"
+      ]
     },
     {
       name: "Cameras & Accessories",
@@ -375,7 +390,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/kyDDzAf"]
+      images: [
+        "https://i.imgur.com/kyDDzAf.png",
+        "https://i.imgur.com/xo6fnvs.png"
+      ]
     },
     {
       name: "Movies & Games",
@@ -412,7 +430,10 @@ export default {
           ]
         }
       ],
-      images: ["https://imgur.com/kisUKnj", "https://imgur.com/vcQmCfo"]
+      images: [
+        "https://i.imgur.com/kisUKnj.jpeg",
+        "https://i.imgur.com/vcQmCfo.png"
+      ]
     }
   ]
 };
