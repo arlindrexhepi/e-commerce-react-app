@@ -1,10 +1,11 @@
 interface Props {
   className?: string;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-const Button: React.FC<Props> = ({ children, className }) => {
+const Button: React.FC<Props> = ({ children, className, onClick }) => {
   return (
-    <button className={className} type="button">
+    <button onClick={onClick} className={className} type="button">
       {children}
     </button>
   );

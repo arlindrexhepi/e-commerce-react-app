@@ -14,7 +14,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
 
   return (
     <div className={className}>
-      <div className="relative side-space flex items-center py-1">
+      <nav className="nav-bar relative side-space flex items-center py-1">
         {data.categories.map(
           (category: CategoriesDataInterface, index: number) => {
             return (
@@ -30,7 +30,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
             );
           }
         )}
-      </div>
+      </nav>
     </div>
   );
 };

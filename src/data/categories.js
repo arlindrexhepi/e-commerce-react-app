@@ -56,8 +56,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/QqTsMSC.png",
-        "https://i.imgur.com/h4UK6AP.png"
+        "https://i.imgur.com/Ry0CTCY.png",
+        "https://i.imgur.com/ZIVl09p.png"
       ]
     },
     {
@@ -118,8 +118,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/PW84izC.png",
-        "https://i.imgur.com/noQWjbP.png"
+        "https://i.imgur.com/fjSK7GJ.png",
+        "https://i.imgur.com/g9JmvS3.png"
       ]
     },
     {
@@ -179,8 +179,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/GBNXHkO.png",
-        "https://i.imgur.com/E5CuB78.png"
+        "https://i.imgur.com/8ZXwLhy.png",
+        "https://i.imgur.com/C7OTEnR.png"
       ]
     },
     {
@@ -247,8 +247,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/k3t9Gz5.png",
-        "https://i.imgur.com/WZljLzC.png"
+        "https://i.imgur.com/VoF4Re9.png",
+        "https://i.imgur.com/mZMkSwX.png"
       ]
     },
     {
@@ -322,8 +322,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/0A8p6n5.png",
-        "https://i.imgur.com/YanwXRB.png"
+        "https://i.imgur.com/LgcmHqX.png",
+        "https://i.imgur.com/tUfZWY1.png"
       ]
     },
     {
@@ -391,8 +391,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/kyDDzAf.png",
-        "https://i.imgur.com/xo6fnvs.png"
+        "https://i.imgur.com/el1lVgG.png",
+        "https://i.imgur.com/OArMZSG.png"
       ]
     },
     {
@@ -431,8 +431,8 @@ export default {
         }
       ],
       images: [
-        "https://i.imgur.com/kisUKnj.jpeg",
-        "https://i.imgur.com/vcQmCfo.png"
+        "https://i.imgur.com/fzqy2F3.jpg",
+        "https://i.imgur.com/NWQFu35.png"
       ]
     }
   ]
