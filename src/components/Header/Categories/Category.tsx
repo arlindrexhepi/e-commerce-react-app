@@ -1,5 +1,5 @@
 import { SetStateAction, Dispatch } from "react";
-import { AiOutlineDown } from "react-icons/ai";
+import { FaCaretDown } from "react-icons/fa";
 
 import SubCategories from "./SubCategories";
 import { SubCategoriesInterface } from "../../../interfaces/CategoriesInterface";
@@ -29,7 +29,7 @@ const Category: React.FC<CategoriesInterface> = ({
         onMouseEnter={() => onSetShowAccordion(categoryIndex)}
         onMouseLeave={() => onSetShowAccordion(0)}
       >
-        <p>{categoryTitle}</p> <AiOutlineDown className="ml-1 text-2xl p-1" />
+        <p>{categoryTitle}</p> <FaCaretDown className="ml-1 text-2xl p-1" />
       </div>
       <SubCategories
         accordionImages={accordionImages}

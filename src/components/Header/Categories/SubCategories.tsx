@@ -16,7 +16,7 @@ const SubCategories: React.FC<CategoriesInterface> = ({
           ? "visible opacity-100"
           : "invisible opacity-0"
       } 
-          childAccordion absolute bg-white px-8 py-4 top-[100%] w-full flex 
+          childAccordion absolute z-10 bg-white px-8 py-4 top-[100%] w-full flex 
           rounded-b-lg shadow-lg text-black`}
       onMouseEnter={() => onSetShowAccordion(categoryIndex)}
       onMouseLeave={() => onSetShowAccordion(0)}

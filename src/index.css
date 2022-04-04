@@ -3,11 +3,42 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #dbdcdc;
+}
+/* Thumb */
+::-webkit-scrollbar-thumb {
+  background: #3a86ff;
+}
+/* Thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0062ff;
+}
+body {
+  scroll-behavior: smooth;
+}
 #store-logo {
   font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 700;
   letter-spacing: -3.5px;
+}
+header.main-header {
+  transform: translateY(-100%);
+  visibility: hidden;
+}
+header.main-header.active {
+  animation: clear 0.3s ease-in-out forwards;
+}
+nav.nav-bar {
+  transform: translateY(-100%);
+}
+header.main-header.active nav.nav-bar {
+  animation: clear 0.8s ease-in-out forwards;
 }
 #top-loader-container {
   position: relative;
@@ -24,6 +55,19 @@
 }
 .childAccordion {
   transition: visibility 0.3s linear, opacity 0.3s linear;
+}
+.carosel-track {
+  transition: transform 0.5s ease-in-out;
+}
+.fade-carosel {
+  background: linear-gradient(-180deg, rgba(234, 237, 237, 0), #2d3142);
+}
+@keyframes clear {
+  to {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+  }
 }
 @keyframes loadingAnimation {
   0% {
