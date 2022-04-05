@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+import useWindowResize from "../../utils/useWindowResize";
 
 import StoreUpdates from "./StoreUpdates";
 import NavLeftSide from "./NavLeftSide";
@@ -10,6 +12,7 @@ import Categories from "./Categories";
 const Header = () => {
   const [showStoreUpdate, setShowStoreUpdate] = useState<boolean>(false);
   const [showSearchBar, setShowSearchBar] = useState<boolean>(true);
+  const { windowInnerWidth } = useWindowResize();
   // const [showLoader, setShowLoader] = useState<boolean>(false);
 
   const showStoreUpdateHandler = () => {
@@ -18,6 +21,14 @@ const Header = () => {
   const showSearchBarHandler = () => {
     setShowSearchBar((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    if (windowInnerWidth <= 768) {
+      setShowSearchBar(false);
+      return;
+    }
+    setShowSearchBar(true);
+  }, [windowInnerWidth]);
 
   return (
     <>
