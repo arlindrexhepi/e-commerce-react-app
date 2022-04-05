@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import useWindowResize from "../../utils/useWindowResize";
 
 import Button from "./Button";
 import {
@@ -10,6 +11,7 @@ import {
 const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
   const [showCurrentImg, setShowCurrentImg] = useState<number>(0);
   const [slideAmount, setSlideAmount] = useState<number>(0);
+  const { windowInnerWidth } = useWindowResize();
   const refActiveImg = useRef<any>();
   useEffect(() => {
     const caroselAutoPlay = setInterval(() => {
@@ -17,6 +19,14 @@ const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
         return;
       }
       setShowCurrentImg((prev) => prev + 1);
+      if (windowInnerWidth <= 768) {
+        setSlideAmount((prev) =>
+          refActiveImg.current.nextElementSibling === null
+            ? prev - 375
+            : prev - refActiveImg.current.nextElementSibling.offsetWidth
+        );
+        return;
+      }
       setSlideAmount((prev) =>
         refActiveImg.current.nextElementSibling === null
           ? prev - 1528
@@ -27,12 +37,12 @@ const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
     return () => {
       clearInterval(caroselAutoPlay);
     };
-  }, [imgArr.length, showCurrentImg]);
+  }, [imgArr.length, showCurrentImg, windowInnerWidth]);
 
   return (
     <div className="relative w-full overflow-hidden">
       <div
-        className="carosel-track h-[554px] w-full"
+        className="carosel-track h-[400px] lg:h-[554px] w-full"
         style={{
           transform: `translateX(${slideAmount}px)`
         }}
@@ -67,7 +77,7 @@ const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
       <Button
         className={`${
           showCurrentImg === 0 ? "hidden" : ""
-        } absolute top-[50%] left-[4%] text-white p-8 text-2xl bg-black
+        } absolute top-[50%] left-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
         rounded-full opacity-50 hover:opacity-100 flex justify-center items-center
         -translate-y-1/2`}
         onClick={() => {
@@ -85,7 +95,7 @@ const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
       <Button
         className={`${
           showCurrentImg === imgArr.length - 1 ? "hidden" : ""
-        } absolute top-[50%] right-[4%] text-white p-8 text-2xl bg-black
+        } absolute top-[50%] right-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
         rounded-full opacity-50 hover:opacity-100 flex justify-center items-center
         -translate-y-1/2`}
         onClick={() => {

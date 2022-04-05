@@ -27,11 +27,13 @@ const SearchBar = () => {
         <option>Cameras &amp; Accessories</option>
         <option>Movies &amp; Games</option>
       </select>
-      <AiOutlineSearch
-        className="text-black bg-transparent md:text-white w-[20%] 
-         md:w-[10%] text-3xl md:rounded-r-full max-h-full hover:bg-darkPrimary
-         cursor-pointer my-auto"
-      />
+      <div
+        className="flex justify-center items-center text-black bg-primary md:text-white
+         w-[20%] md:w-[10%] text-3xl md:rounded-r-full hover:bg-darkPrimary
+         cursor-pointer"
+      >
+        <AiOutlineSearch />
+      </div>
     </div>
   );
 };
