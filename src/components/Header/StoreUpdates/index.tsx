@@ -10,7 +10,7 @@ const StoreUpdates: React.FC<StoreUpdatesProps> = ({
   return (
     <div
       className="relative flex items-center justify-center
-       bg-lightGrey py-1 text-darkBlue"
+       bg-lightGrey py-1 text-primary"
     >
       <p>Store Updates!</p>
       <AiOutlineClose
