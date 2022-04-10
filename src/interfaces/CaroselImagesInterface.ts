@@ -1,8 +1,9 @@
-export interface CaroselImagesInterface {
-  imgArr: CaroselImageInterface[];
+export interface CarouselImagesInterface {
+  desktop: CarouselImageInterface[];
+  mobile: CarouselImageInterface[];
 }
 
-export interface CaroselImageInterface {
+export interface CarouselImageInterface {
   id: string;
   path: string;
   title: string;

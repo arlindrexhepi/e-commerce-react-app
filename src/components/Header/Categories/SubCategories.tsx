@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { CategoriesInterface } from "./Category";
-import { SubCategoriesInterface } from "../../../interfaces/CategoriesInterface";
+import { SubCategoriesInterface } from "../../../interfaces/CategoriesDataInterface";
 
 const SubCategories: React.FC<CategoriesInterface> = ({
   showAccordion,

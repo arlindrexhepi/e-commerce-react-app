@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-
-import useWindowResize from "../../utils/useWindowResize";
+import useWindowResize from "../../hooks/useWindowResize";
 
 import StoreUpdates from "./StoreUpdates";
 import NavLeftSide from "./NavLeftSide";

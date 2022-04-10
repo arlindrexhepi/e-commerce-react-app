@@ -1,9 +1,8 @@
 import { useState } from "react";
-
-import data from "../../../data/categories";
+import useCategoryService from "../../../hooks/useCategoryService";
 
 import Category from "./Category";
-import { CategoriesDataInterface } from "../../../interfaces/CategoriesInterface";
+import { CategoriesDataInterface } from "../../../interfaces/CategoriesDataInterface";
 
 interface CategoriesProps {
   className: string;
@@ -11,12 +10,14 @@ interface CategoriesProps {
 
 const Categories: React.FC<CategoriesProps> = ({ className }) => {
   const [showAccordion, setShowAccordion] = useState<number>(0);
-
+  const { data } = useCategoryService({
+    url: "/data/categories.json"
+  });
   return (
     <div className={className}>
       <nav className="nav-bar relative side-space flex items-center py-1">
-        {data.categories.map(
-          (category: CategoriesDataInterface, index: number) => {
+        {data &&
+          data.map((category: CategoriesDataInterface, index: number) => {
             return (
               <Category
                 key={category.name}
@@ -28,8 +29,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
                 subCategories={category.childs}
               />
             );
-          }
-        )}
+          })}
       </nav>
     </div>
   );

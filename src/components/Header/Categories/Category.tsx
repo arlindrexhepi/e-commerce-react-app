@@ -2,7 +2,7 @@ import { SetStateAction, Dispatch } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 import SubCategories from "./SubCategories";
-import { SubCategoriesInterface } from "../../../interfaces/CategoriesInterface";
+import { SubCategoriesInterface } from "../../../interfaces/CategoriesDataInterface";
 
 export interface CategoriesInterface {
   categoryTitle?: string;

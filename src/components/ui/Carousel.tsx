@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import useWindowResize from "../../utils/useWindowResize";
+import useWindowResize from "../../hooks/useWindowResize";
 
 import Button from "./Button";
-import {
-  CaroselImagesInterface,
-  CaroselImageInterface
-} from "../../interfaces/CaroselImagesInterface";
+import { CarouselImageInterface } from "../../interfaces/CaroselImagesInterface";
 
-const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
+interface CarouselProps {
+  imgArr: CarouselImageInterface[];
+}
+
+const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
   const [showCurrentImg, setShowCurrentImg] = useState<number>(0);
   const [slideAmount, setSlideAmount] = useState<number>(0);
   const { windowInnerWidth } = useWindowResize();
@@ -47,7 +48,7 @@ const Carousel: React.FC<CaroselImagesInterface> = ({ imgArr }) => {
           transform: `translateX(${slideAmount}px)`
         }}
       >
-        {imgArr.map((banner: CaroselImageInterface, bannerIndex: number) => {
+        {imgArr.map((banner: CarouselImageInterface, bannerIndex: number) => {
           return (
             <div
               ref={showCurrentImg === bannerIndex ? refActiveImg : null}
