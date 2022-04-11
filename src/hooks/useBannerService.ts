@@ -17,7 +17,11 @@ const useBannerService = (options: Options) => {
     setData(collectedData.data);
   };
   useEffect(() => {
-    getData();
+    try {
+      getData();
+    } catch (err) {
+      console.error(err, new Error("Something went wrong!!"));
+    }
   }, [options.url]);
   return { data };
 };
