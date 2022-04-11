@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useWindowResize from "../../hooks/useWindowResize";
 
-import Button from "./Button";
+import NavButtons from "./NavButtons";
+import Button from "../UI/Button";
 import { CarouselImageInterface } from "../../interfaces/CaroselImagesInterface";
 
 interface CarouselProps {
@@ -79,8 +80,8 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
         className={`${
           showCurrentImg === 0 ? "hidden" : ""
         } absolute top-[50%] left-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
-        rounded-full opacity-50 hover:opacity-100 flex justify-center items-center
-        -translate-y-1/2`}
+         rounded-full opacity-50 hover:text-primary hover:opacity-100 flex justify-center
+         items-center -translate-y-1/2`}
         onClick={() => {
           setShowCurrentImg((prev) =>
             prev === 0 ? imgArr.length - 1 : prev - 1
@@ -97,8 +98,8 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
         className={`${
           showCurrentImg === imgArr.length - 1 ? "hidden" : ""
         } absolute top-[50%] right-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
-        rounded-full opacity-50 hover:opacity-100 flex justify-center items-center
-        -translate-y-1/2`}
+         rounded-full opacity-50 hover:text-primary hover:opacity-100 flex justify-center
+         items-center -translate-y-1/2`}
         onClick={() => {
           setShowCurrentImg((prev) =>
             prev === imgArr.length - 1 ? 0 : prev + 1
@@ -110,6 +111,13 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
       >
         <FaChevronRight />
       </Button>
+      <NavButtons
+        arrLength={imgArr.length}
+        showCurrentImg={showCurrentImg}
+        setShowCurrentImg={setShowCurrentImg}
+        setSlideAmount={setSlideAmount}
+        refActiveImg={refActiveImg}
+      />
     </div>
   );
 };

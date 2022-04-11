@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Logo from "../../ui/Logo";
+import Logo from "../../UI/Logo";
 
 const NavLeftSide = () => {
   return (
