@@ -18,6 +18,8 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
   useEffect(() => {
     const caroselAutoPlay = setInterval(() => {
       if (showCurrentImg === imgArr.length - 1) {
+        setShowCurrentImg(0);
+        setSlideAmount(0);
         return;
       }
       setShowCurrentImg((prev) => prev + 1);

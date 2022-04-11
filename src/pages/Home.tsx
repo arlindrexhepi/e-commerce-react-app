@@ -1,7 +1,7 @@
 import useWindowResize from "../hooks/useWindowResize";
 import useBannerService from "../hooks/useBannerService";
 
-import Carousel from "../components/ui/Carousel";
+import Carousel from "../components/Carousel";
 
 const Home: React.FC = () => {
   const { windowInnerWidth } = useWindowResize();
