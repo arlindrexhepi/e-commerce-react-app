@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import randomArray from "../../utils/randomArray";
-import Button from "../UI/Button";
+import Button from "../ui/Button";
 
 interface NavButtonsProps {
   className?: string;

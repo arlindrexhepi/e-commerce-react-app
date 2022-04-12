@@ -3,7 +3,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useWindowResize from "../../hooks/useWindowResize";
 
 import NavButtons from "./NavButtons";
-import Button from "../UI/Button";
+import Button from "../ui/Button";
 import { CarouselImageInterface } from "../../interfaces/CaroselImagesInterface";
 
 interface CarouselProps {
