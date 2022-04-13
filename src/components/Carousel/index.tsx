@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import useWindowResize from "../../hooks/useWindowResize";
 
@@ -44,9 +45,9 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
   }, [imgArr.length, showCurrentImg, windowInnerWidth]);
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <div className="carousel-container relative w-full overflow-hidden">
       <div
-        className="carosel-track h-[400px] lg:h-[554px] w-full"
+        className="carousel-track h-[400px] lg:h-[554px] w-full"
         style={{
           transform: `translateX(${slideAmount}px)`
         }}
@@ -65,12 +66,14 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
               key={banner.id}
               className="absolute top-0 w-full"
             >
-              <img
-                loading="lazy"
-                className="object-contain max-h-full"
-                src={banner.path}
-                alt={banner.title}
-              />
+              <Link to="/">
+                <img
+                  loading="lazy"
+                  className="object-contain max-h-full"
+                  src={banner.path}
+                  alt={banner.title}
+                />
+              </Link>
             </div>
           );
         })}
@@ -79,10 +82,10 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
         <div className="fade-carosel select-none h-full" />
       </div>
       <Button
-        className={`${
+        className={`prev-btn ${
           showCurrentImg === 0 ? "hidden" : ""
         } absolute top-[50%] left-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
-         rounded-full opacity-50 hover:text-primary hover:opacity-100 flex justify-center
+         rounded-full opacity-50 hover:opacity-100 flex justify-center
          items-center -translate-y-1/2`}
         onClick={() => {
           setShowCurrentImg((prev) =>
@@ -97,10 +100,10 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
         <FaChevronLeft />
       </Button>
       <Button
-        className={`${
+        className={`next-btn ${
           showCurrentImg === imgArr.length - 1 ? "hidden" : ""
         } absolute top-[50%] right-[4%] text-white p-4 lg:p-8 text-xl lg:text-2xl bg-black
-         rounded-full opacity-50 hover:text-primary hover:opacity-100 flex justify-center
+         rounded-full opacity-50 hover:opacity-100 flex justify-center
          items-center -translate-y-1/2`}
         onClick={() => {
           setShowCurrentImg((prev) =>
