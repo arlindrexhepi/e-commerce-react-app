@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   const { data } = useBannerService({
     url: "/data/banners.json"
   });
-  const productsNumber = 22;
+  const productsNumber = 21;
   const newArr = useMemo(() => randomArray(productsNumber), [productsNumber]);
   useEffect(() => {
     const loaderTimeout = setTimeout(() => {
@@ -36,8 +36,8 @@ const Home: React.FC = () => {
     <div className="main-container bg-white">
       {showCarosel()}
       <div
-        className="flex items-center flex-wrap gap-y-[100px] place-content-center
-       md:place-content-start side-space my-5 pt-5 pb-12"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-[100px]
+        place-content-center side-space my-5 pt-5 pb-12"
       >
         {isLoading &&
           newArr.map((el: number) => {
