@@ -2,6 +2,9 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const app = express();
 const { errorHandler } = require("./middleware/errorMiddleware");
+const connectDB = require("./config/db");
+
+connectDB();
 
 const PORT = process.env.REACT_APP_PORT || 3000;
 
