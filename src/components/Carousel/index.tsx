@@ -47,7 +47,7 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
   return (
     <div className="carousel-container relative w-full overflow-hidden">
       <div
-        className="carousel-track h-[400px] lg:h-[554px] w-full"
+        className="carousel-track h-[400px] lg:h-[506px] w-full"
         style={{
           transform: `translateX(${slideAmount}px)`
         }}

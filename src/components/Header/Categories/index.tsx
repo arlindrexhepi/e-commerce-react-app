@@ -11,7 +11,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ className }) => {
   const [showAccordion, setShowAccordion] = useState<number>(0);
   const { data } = useCategoryService({
-    url: "/data/categories.json"
+    url: "http://localhost:8000/api/categories"
   });
   return (
     <div className={className}>
@@ -22,7 +22,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
               <Category
                 key={category.name}
                 categoryIndex={index + 1}
-                categoryTitle={category.name}
+                categoryName={category.name}
                 onSetShowAccordion={setShowAccordion}
                 showAccordion={showAccordion}
                 accordionImages={category.images}

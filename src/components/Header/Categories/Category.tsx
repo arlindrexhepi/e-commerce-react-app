@@ -5,7 +5,7 @@ import SubCategories from "./SubCategories";
 import { SubCategoriesInterface } from "../../../interfaces/CategoriesDataInterface";
 
 export interface CategoriesInterface {
-  categoryTitle?: string;
+  categoryName?: string;
   showAccordion: number;
   onSetShowAccordion: Dispatch<SetStateAction<number>>;
   accordionImages: string[];
@@ -14,7 +14,7 @@ export interface CategoriesInterface {
 }
 
 const Category: React.FC<CategoriesInterface> = ({
-  categoryTitle,
+  categoryName: categoryTitle,
   showAccordion,
   onSetShowAccordion,
   accordionImages,
@@ -24,8 +24,8 @@ const Category: React.FC<CategoriesInterface> = ({
   return (
     <>
       <div
-        className="parentAccordion flex items-center border-r 
-    hover:bg-darkPrimary px-4 py-3 lg:cursor-pointer"
+        className="parentAccordion flex items-center border-r text-sm
+      hover:bg-darkPrimary px-4 py-3 lg:cursor-pointer"
         onMouseEnter={() => onSetShowAccordion(categoryIndex)}
         onMouseLeave={() => onSetShowAccordion(0)}
       >

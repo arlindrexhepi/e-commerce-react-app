@@ -22,22 +22,12 @@ const SubCategories: React.FC<CategoriesInterface> = ({
       onMouseLeave={() => onSetShowAccordion(0)}
     >
       <div className="w-[80%] grid grid-cols-3 gap-y-4">
-        {subCategories.map((subCategory: SubCategoriesInterface) => {
+        {subCategories.map((subCategory: SubCategoriesInterface, index) => {
+          console.log(subCategory, "sub", index);
           return (
-            <div key={subCategory.name}>
-              <p className="text-lg font-semibold text-secondary">
-                <Link to="/">{subCategory.name}</Link>
-              </p>
-              <ul>
-                {subCategory.subChilds.map((link: string) => {
-                  return (
-                    <li key={link}>
-                      <Link to={`/${link}`}>{link}</Link>
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+            <Link to="/">
+              <p>{subCategory}</p>
+            </Link>
           );
         })}
       </div>

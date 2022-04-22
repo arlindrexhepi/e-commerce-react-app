@@ -157,7 +157,7 @@ a {
 
 @layer components {
   .main-container {
-    @apply container min-h-[90vh];
+    @apply min-h-[90vh];
   }
   .side-space {
     @apply mx-[2%];
