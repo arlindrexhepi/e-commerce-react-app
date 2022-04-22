@@ -22,8 +22,7 @@ const SubCategories: React.FC<CategoriesInterface> = ({
       onMouseLeave={() => onSetShowAccordion(0)}
     >
       <div className="w-[80%] grid grid-cols-3 gap-y-4">
-        {subCategories.map((subCategory: SubCategoriesInterface, index) => {
-          console.log(subCategory, "sub", index);
+        {subCategories.map((subCategory: SubCategoriesInterface) => {
           return (
             <Link to="/">
               <p>{subCategory}</p>
