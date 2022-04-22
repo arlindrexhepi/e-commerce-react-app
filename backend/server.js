@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv").config();
 const app = express();
@@ -15,6 +16,19 @@ app.use(cors());
 
 app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/categories", require("./routes/categoryRoutes"));
+
+//Serve frontend
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../build")));
+
+  app.get("*", (req, res) =>
+    res.sendFile(path.resolve(__dirname, "../", "build", "index.html"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.status(500).send("Please set the file to development");
+  });
+}
 
 app.use(errorHandler);
 
