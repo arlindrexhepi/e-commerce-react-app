@@ -8,7 +8,7 @@ const connectDB = require("./config/db");
 
 connectDB();
 
-const PORT = process.env.REACT_APP_PORT || 3000;
+const PORT = process.env.PORT || 7000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
