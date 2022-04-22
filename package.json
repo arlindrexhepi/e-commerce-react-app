@@ -22,7 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "server": "cd backend npm start",
+    "server": "cd backend && npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint .",
