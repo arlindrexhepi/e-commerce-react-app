@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { CategoriesInterface } from "./Category";
-import { SubCategoriesInterface } from "../../../interfaces/CategoriesDataInterface";
 
 const SubCategories: React.FC<CategoriesInterface> = ({
   showAccordion,
@@ -16,23 +15,23 @@ const SubCategories: React.FC<CategoriesInterface> = ({
           ? "visible opacity-100"
           : "invisible opacity-0"
       } 
-          childAccordion absolute z-10 bg-white px-8 py-4 top-[100%] w-full flex 
+          childAccordion absolute z-10 bg-white px-8 py-4 top-[100%] w-full
           rounded-b-lg shadow-lg text-black`}
       onMouseEnter={() => onSetShowAccordion(categoryIndex)}
       onMouseLeave={() => onSetShowAccordion(0)}
     >
-      <div className="w-[80%] grid grid-cols-3 gap-y-4">
-        {subCategories.map((subCategory: SubCategoriesInterface) => {
+      <div className="flex items-center justify-around gap-x-4 gap-y-2">
+        {subCategories.map((subCategory: string) => {
           return (
-            <Link to="/">
+            <Link key={subCategory} to="/">
               <p>{subCategory}</p>
             </Link>
           );
         })}
       </div>
-      <div className="w-[20%]">
+      <div className="flex items-center justify-around gap-x-4 gap-y-2">
         {accordionImages.map((el: string) => {
-          return <img key={el} className="max-w-[75%]" src={el} alt={el} />;
+          return <img key={el} className="max-w-[80px]" src={el} alt={el} />;
         })}
       </div>
     </div>

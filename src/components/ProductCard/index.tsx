@@ -32,7 +32,7 @@ const ProductCard: React.FC = () => {
           Ryzen 5 5500U Processor, 17.3″ HD+
         </p>
       </div>
-      <div className="flex items-baseline px-4 pt-2 pb-4">
+      <div className="flex items-baseline justify-evenly px-4 pt-2 pb-4">
         <span className="line-through mr-2 font-semibold text-muted text-lg">
           1500.00 &euro;
         </span>
