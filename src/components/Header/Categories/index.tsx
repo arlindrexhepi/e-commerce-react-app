@@ -11,7 +11,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ className }) => {
   const [showAccordion, setShowAccordion] = useState<number>(0);
   const { data } = useCategoryService({
-    url: "https://e-commerce-backend-app.herokuapp.com/api/categories"
+    url: `${process.env.REACT_APP_CHEC_GET_CATEGORIES}`
   });
   return (
     <div className={className}>
