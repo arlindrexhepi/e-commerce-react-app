@@ -27,14 +27,14 @@ const Carousel: React.FC<CarouselProps> = ({ imgArr }) => {
       if (windowInnerWidth <= 768) {
         setSlideAmount((prev) =>
           refActiveImg.current.nextElementSibling === null
-            ? prev - 375
+            ? prev - refActiveImg.current.previousElementSibling.offsetWidth
             : prev - refActiveImg.current.nextElementSibling.offsetWidth
         );
         return;
       }
       setSlideAmount((prev) =>
         refActiveImg.current.nextElementSibling === null
-          ? prev - 1388
+          ? prev - refActiveImg.current.previousElementSibling.offsetWidth
           : prev - refActiveImg.current.nextElementSibling.offsetWidth
       );
     }, 5000);
