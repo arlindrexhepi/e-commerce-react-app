@@ -2,14 +2,13 @@ import { SetStateAction, Dispatch } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 import SubCategories from "./SubCategories";
-import { SubCategoriesInterface } from "../../../interfaces/CategoriesDataInterface";
 
 export interface CategoriesInterface {
   categoryName?: string;
   showAccordion: number;
   onSetShowAccordion: Dispatch<SetStateAction<number>>;
   accordionImages: string[];
-  subCategories: SubCategoriesInterface[];
+  subCategories: string[];
   categoryIndex: number;
 }
 

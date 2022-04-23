@@ -1,10 +1,6 @@
 export interface CategoriesDataInterface {
   _id: string;
   name: string;
-  childs: SubCategoriesInterface[];
+  childs: string[];
   images: string[];
-}
-
-export interface SubCategoriesInterface {
-  name: string;
 }
