@@ -1,9 +1,11 @@
 import { useState, useEffect, useMemo } from "react";
 import useWindowResize from "../hooks/useWindowResize";
 import useBannerService from "../hooks/useBannerService";
-import randomArray from "../utils/randomArray";
+import useProductsService from "../hooks/useProductsService";
 
+import randomArray from "../utils/randomArray";
 import Carousel from "../components/Carousel";
+import { ProductsInterface } from "../interfaces/ProductsInterface";
 import ProductCard from "../components/ProductCard";
 import ProductCardSkeleton from "../components/ui/ProductCardSkeleton";
 
@@ -13,15 +15,16 @@ const Home: React.FC = () => {
   const { data } = useBannerService({
     url: "/data/banners.json"
   });
-  const productsNumber = 21;
+  const { products } = useProductsService({
+    url: "https://e-commerce-backend-app.herokuapp.com/api/products"
+  });
+  const productsNumber = 23;
   const newArr = useMemo(() => randomArray(productsNumber), [productsNumber]);
   useEffect(() => {
-    const loaderTimeout = setTimeout(() => {
+    if (products) {
       setIsLoading(false);
-    }, 3000);
-
-    return () => clearTimeout(loaderTimeout);
-  }, [data]);
+    }
+  }, [data, products]);
   const showCarosel = (): JSX.Element | null => {
     if (data && windowInnerWidth <= 768) {
       return <Carousel imgArr={data.mobile} />;
@@ -44,8 +47,21 @@ const Home: React.FC = () => {
             return <ProductCardSkeleton key={el} />;
           })}
         {!isLoading &&
-          newArr.map((el: number) => {
-            return <ProductCard key={el} />;
+          products &&
+          products.map((el: ProductsInterface) => {
+            return (
+              <ProductCard
+                key={el._id}
+                _id={el._id}
+                title={el.title}
+                thumbnail={el.thumbnail}
+                category={el.category}
+                price={el.price}
+                rating={el.rating}
+                on_sale={el.on_sale}
+                new_price={el.new_price}
+              />
+            );
           })}
       </div>
     </div>

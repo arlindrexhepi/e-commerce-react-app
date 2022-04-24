@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
 
+import { ProductsInterface } from "../../interfaces/ProductsInterface";
 import RatingStars from "./RatingStars";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 
-const ProductCard: React.FC = () => {
-  const link =
-    "https://demo2wpopal.b-cdn.net/technocy/wp-content/uploads/2021/07/11-460x460.jpg";
+const ProductCard: React.FC<ProductsInterface> = ({
+  _id,
+  category,
+  on_sale,
+  price,
+  rating,
+  thumbnail,
+  title,
+  new_price
+}) => {
   return (
     <Card
       className="product-card-container w-[320px] hover:shadow-xl relative 
@@ -18,28 +26,38 @@ const ProductCard: React.FC = () => {
         className="absolute w-full px-4 py-2 left-0 top-0 flex items-center
         justify-between rounded-tl rounded-tr"
       >
-        <p>Computers &amp; Laptops</p>
+        <p>{category}</p>
       </div>
-      <Link to="/">
-        <img className="object-contain p-2" src={link} alt="laptop" />
+      <Link to={`/${_id}`} className="flex items-center justify-center">
+        <img
+          className="object-contain w-[200px] p-2"
+          src={thumbnail}
+          alt={title}
+        />
       </Link>
-      <div className="px-4">
-        <RatingStars rating={5} />
+      <div className="px-4 py-2">
+        <RatingStars rating={rating} />
       </div>
-      <div className="product-card-title px-4">
-        <p>
-          Touchscreen, AMD Ryzen 5 5500U Processor 17.3″ HD+ Touchscreen, AMD
-          Ryzen 5 5500U Processor, 17.3″ HD+
-        </p>
+      <div className="product-card-title px-4 h-[48px]">
+        <p>{title}</p>
       </div>
-      <div className="flex items-baseline justify-evenly px-4 pt-2 pb-4">
-        <span className="line-through mr-2 font-semibold text-muted text-lg">
-          1500.00 &euro;
-        </span>
-        <span className="font-semibold text-secondary text-2xl">
-          1400.00 &euro;
-        </span>
-      </div>
+      {on_sale && (
+        <div className="flex items-baseline justify-center px-4 pt-2 pb-4">
+          <span className="line-through mr-2 font-semibold text-muted text-lg">
+            {price.toFixed(2)} &euro;
+          </span>
+          <span className="font-semibold text-secondary text-2xl">
+            {new_price?.toFixed(2)} &euro;
+          </span>
+        </div>
+      )}
+      {!on_sale && (
+        <div className="flex items-baseline justify-center px-4 pt-2 pb-4">
+          <span className="font-semibold text-secondary text-2xl">
+            {price.toFixed(2)} &euro;
+          </span>
+        </div>
+      )}
       <div
         className="product-card-button shadow-xl rounded-bl rounded-br bg-white 
         absolute top-[100%] px-4 flex items-center py-4 justify-center w-full"
