@@ -50,6 +50,7 @@
     "no-const-assign": "error",
     "no-unused-vars": "error",
     "no-console": "off",
-    "eqeqeq": "error"
+    "eqeqeq": "error",
+    "no-underscore-dangle": 0
   }
 }
