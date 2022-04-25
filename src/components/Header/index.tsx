@@ -35,8 +35,8 @@ const Header = () => {
         <StoreUpdates showStoreUpdateHandler={showStoreUpdateHandler} />
       )}
       <header
-        className="main-header active sticky top-0 z-10 bg-white mb-1 lg:mb-0 shadow
-        lg:shadow-none"
+        className="main-header active sticky top-0 z-10 bg-white mb-1 
+      lg:mb-0 shadow-lg"
       >
         {/* {showLoader && <Loader />} */}
         <div
@@ -50,11 +50,11 @@ const Header = () => {
             showSearchBarHandler={showSearchBarHandler}
           />
         </div>
-        <Categories
-          className="hidden lg:block bg-primary text-white 
-          font-semibold"
-        />
       </header>
+      <Categories
+        className="hidden lg:block bg-primary text-white 
+          font-semibold"
+      />
     </>
   );
 };
