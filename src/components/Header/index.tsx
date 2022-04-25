@@ -35,7 +35,7 @@ const Header = () => {
         <StoreUpdates showStoreUpdateHandler={showStoreUpdateHandler} />
       )}
       <header
-        className="main-header active sticky top-0 z-10 bg-white mb-1 
+        className="main-header active sticky top-0 z-20 bg-white mb-1 
       lg:mb-0 shadow-lg"
       >
         {/* {showLoader && <Loader />} */}
@@ -52,7 +52,7 @@ const Header = () => {
         </div>
       </header>
       <Categories
-        className="hidden lg:block bg-primary text-white 
+        className="hidden lg:block relative z-10 bg-primary text-white 
           font-semibold"
       />
     </>
