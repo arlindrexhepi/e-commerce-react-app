@@ -10,33 +10,34 @@ import ProductCard from "../components/ProductCard";
 import ProductCardSkeleton from "../components/ui/ProductCardSkeleton";
 import Button from "../components/ui/Button";
 
-// const productReducer = (latestState, action) => {};
-
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { windowInnerWidth } = useWindowResize();
   const limit = 23;
   const [page, setPage] = useState<number>(1);
-  // const [productState, dispatchProductAction] = useReducer(productReducer);
-  // const [allProducts, setAllProducts] = useState<ProductsInterface[] | null>(
-  //   null
-  // );
+  const [allProducts, setAllProducts] = useState<ProductsInterface[] | null>(
+    null
+  );
   const { data } = useBannerService({
     url: "/data/banners.json"
   });
   const { products } = useProductsService({
-    // eslint-disable-next-line max-len
     url: `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
   });
   const newArr = useMemo(() => randomArray(limit), [limit]);
-  console.log(page, "page");
+
   useEffect(() => {
-    console.log(page, "page effect");
     if (products) {
-      // setAllProducts((prevProducts) => [...prevProducts!, ...products]);
+      setAllProducts((prev) => {
+        if (prev) {
+          return [...prev, ...products];
+        }
+        return [...products];
+      });
       setIsLoading(false);
     }
   }, [data, products]);
+
   const showCarosel = (): JSX.Element | null => {
     if (data && windowInnerWidth <= 768) {
       return <Carousel imgArr={data.mobile} />;
@@ -59,8 +60,8 @@ const Home: React.FC = () => {
             return <ProductCardSkeleton key={el} />;
           })}
         {!isLoading &&
-          products &&
-          products.map((el: ProductsInterface) => {
+          allProducts &&
+          allProducts.map((el: ProductsInterface) => {
             return (
               <ProductCard
                 key={el._id}
