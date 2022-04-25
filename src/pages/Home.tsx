@@ -8,20 +8,32 @@ import Carousel from "../components/Carousel";
 import { ProductsInterface } from "../interfaces/ProductsInterface";
 import ProductCard from "../components/ProductCard";
 import ProductCardSkeleton from "../components/ui/ProductCardSkeleton";
+import Button from "../components/ui/Button";
+
+// const productReducer = (latestState, action) => {};
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { windowInnerWidth } = useWindowResize();
+  const limit = 23;
+  const [page, setPage] = useState<number>(1);
+  // const [productState, dispatchProductAction] = useReducer(productReducer);
+  // const [allProducts, setAllProducts] = useState<ProductsInterface[] | null>(
+  //   null
+  // );
   const { data } = useBannerService({
     url: "/data/banners.json"
   });
   const { products } = useProductsService({
-    url: "https://e-commerce-backend-app.herokuapp.com/api/products"
+    // eslint-disable-next-line max-len
+    url: `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
   });
-  const productsNumber = 23;
-  const newArr = useMemo(() => randomArray(productsNumber), [productsNumber]);
+  const newArr = useMemo(() => randomArray(limit), [limit]);
+  console.log(page, "page");
   useEffect(() => {
+    console.log(page, "page effect");
     if (products) {
+      // setAllProducts((prevProducts) => [...prevProducts!, ...products]);
       setIsLoading(false);
     }
   }, [data, products]);
@@ -63,6 +75,14 @@ const Home: React.FC = () => {
               />
             );
           })}
+      </div>
+      <div className="w-full flex items-center justify-center">
+        <Button
+          className="bg-primary py-2 px-4 rounded text-white"
+          onClick={() => setPage((prev) => prev + 1)}
+        >
+          Show More Products
+        </Button>
       </div>
     </div>
   );

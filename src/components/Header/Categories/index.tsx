@@ -15,7 +15,7 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
   });
   return (
     <div className={className}>
-      <nav className="nav-bar relative side-space flex items-center py-1">
+      <nav className="nav-bar relative active side-space flex items-center py-1">
         {data &&
           data.map((category: CategoriesDataInterface, index: number) => {
             return (

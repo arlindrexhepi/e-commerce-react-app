@@ -37,7 +37,7 @@ header.main-header.active {
 nav.nav-bar {
   transform: translateY(-100%);
 }
-header.main-header.active nav.nav-bar {
+nav.nav-bar.active {
   animation: clear 0.8s ease-in-out forwards;
 }
 #top-loader-container {

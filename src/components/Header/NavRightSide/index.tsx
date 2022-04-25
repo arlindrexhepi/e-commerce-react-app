@@ -44,7 +44,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
       >
         <AiOutlineShopping className="hidden md:block p-3" />
         <div className="text-xl font-semibold">
-          <span>$0.00</span>
+          <span>0.00 &euro;</span>
         </div>
       </div>
     </div>

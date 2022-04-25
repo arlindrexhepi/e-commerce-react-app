@@ -7,14 +7,12 @@ interface Options {
   url: string;
 }
 
-const useProductsService = (options: Options) => {
-  const [products, setProducts] = useState<ProductsInterface[] | null>(null);
+const useSingleProduct = (options: Options) => {
+  const [product, setProduct] = useState<ProductsInterface | null>(null);
 
   const fetchProducts = async () => {
-    const collectedData = await axios.get<ProductsInterface[], any>(
-      options.url
-    );
-    setProducts(collectedData.data);
+    const collectedData = await axios.get<ProductsInterface, any>(options.url);
+    setProduct(collectedData.data);
   };
 
   useEffect(() => {
@@ -26,7 +24,8 @@ const useProductsService = (options: Options) => {
       }
     }
   }, [options.url]);
-  return { products };
+
+  return { product };
 };
 
-export default useProductsService;
+export default useSingleProduct;
