@@ -1,11 +1,12 @@
 import { useState, useEffect, useMemo } from "react";
 import useWindowResize from "../hooks/useWindowResize";
 import useBannerService from "../hooks/useBannerService";
-import useProductsService from "../hooks/useProductsService";
+import useFetchData from "../hooks/useFetchData";
 
+import Modal from "../components/ui/Modal";
 import randomArray from "../utils/randomArray";
 import Carousel from "../components/Carousel";
-import { ProductsInterface } from "../interfaces/ProductsInterface";
+import { ProductInterface } from "../interfaces/ProductInterface";
 import ProductCard from "../components/ProductCard";
 import ProductCardSkeleton from "../components/ui/ProductCardSkeleton";
 import Button from "../components/ui/Button";
@@ -15,35 +16,36 @@ const Home: React.FC = () => {
   const { windowInnerWidth } = useWindowResize();
   const limit = 23;
   const [page, setPage] = useState<number>(1);
-  const [allProducts, setAllProducts] = useState<ProductsInterface[] | null>(
+  const [allProducts, setAllProducts] = useState<ProductInterface[] | null>(
     null
   );
-  const { data } = useBannerService({
+  const [showCartModal, setShowCartModal] = useState<boolean>(true);
+  const { banners } = useBannerService({
     url: "/data/banners.json"
   });
-  const { products } = useProductsService({
-    url: `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
-  });
+  const { data } = useFetchData<ProductInterface[]>(
+    `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
+  );
   const newArr = useMemo(() => randomArray(limit), [limit]);
 
   useEffect(() => {
-    if (products) {
+    if (data) {
       setAllProducts((prev) => {
         if (prev) {
-          return [...prev, ...products];
+          return [...prev, ...data];
         }
-        return [...products];
+        return [...data];
       });
       setIsLoading(false);
     }
-  }, [data, products]);
+  }, [banners, data]);
 
   const showCarosel = (): JSX.Element | null => {
-    if (data && windowInnerWidth <= 768) {
-      return <Carousel imgArr={data.mobile} />;
+    if (banners && windowInnerWidth <= 768) {
+      return <Carousel imgArr={banners.mobile} />;
     }
-    if (data && windowInnerWidth >= 768) {
-      return <Carousel imgArr={data.desktop} />;
+    if (banners && windowInnerWidth >= 768) {
+      return <Carousel imgArr={banners.desktop} />;
     }
     return null;
   };
@@ -55,13 +57,21 @@ const Home: React.FC = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-[100px]
         place-content-center side-space my-5 pt-5 pb-12"
       >
+        <Modal
+          onClose={() => setShowCartModal(false)}
+          showModal={showCartModal}
+          side="right"
+        >
+          <h1>Cart is empty</h1>
+        </Modal>
+
         {isLoading &&
           newArr.map((el: number) => {
             return <ProductCardSkeleton key={el} />;
           })}
         {!isLoading &&
           allProducts &&
-          allProducts.map((el: ProductsInterface) => {
+          allProducts.map((el: ProductInterface) => {
             return (
               <ProductCard
                 key={el._id}

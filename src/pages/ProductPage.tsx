@@ -1,40 +1,47 @@
 import { useParams } from "react-router-dom";
-import useSingleProduct from "../hooks/useSingleProduct";
+import useFetchData from "../hooks/useFetchData";
 import NotFound from "./NotFound";
 
+import { ProductInterface } from "../interfaces/ProductInterface";
 import ProductCard from "../components/ProductCard";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const { product } = useSingleProduct({
-    url: `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
-  });
+  const { data } = useFetchData<ProductInterface>(
+    `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
+  );
   console.log(id);
-  console.log(product, "product");
+  console.log(data, "product");
   if (!id) {
     return <NotFound />;
   }
   return (
     <div className="main-container flex flex-col items-center justify-center">
       <h1 className="text-2xl font-semibold text-secondary">PRODUCT PAGE</h1>
-      {product && (
+      {data && (
         <ProductCard
-          _id={product._id}
-          category={product.category}
-          on_sale={product.on_sale}
-          price={product.price}
-          rating={product.rating}
-          thumbnail={product.thumbnail}
-          title={product.title}
-          description={product.description}
-          new_price={product.new_price}
+          key={data._id}
+          _id={data._id}
+          category={data.category}
+          on_sale={data.on_sale}
+          price={data.price}
+          rating={data.rating}
+          thumbnail={data.thumbnail}
+          title={data.title}
+          description={data.description}
+          new_price={data.new_price}
         />
       )}
       <div className="flex items-center justify-center py-4">
-        {product &&
-          product.images?.map((image) => {
+        {data &&
+          data.images?.map((image) => {
             return (
-              <img className="object-fit w-[200px]" alt={image} src={image} />
+              <img
+                key={image}
+                className="object-fit w-[200px]"
+                alt={image}
+                src={image}
+              />
             );
           })}
       </div>

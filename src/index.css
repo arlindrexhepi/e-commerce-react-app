@@ -53,6 +53,9 @@ nav.nav-bar.active {
   animation: loadingAnimation 3.5s ease-in infinite;
   transition: width 0.8s ease-in-out, height 0.8s ease;
 }
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
 .childAccordion {
   transition: visibility 0.15s linear, opacity 0.15s linear;
 }
