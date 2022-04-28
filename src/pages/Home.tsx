@@ -3,7 +3,7 @@ import useWindowResize from "../hooks/useWindowResize";
 import useBannerService from "../hooks/useBannerService";
 import useFetchData from "../hooks/useFetchData";
 
-import Modal from "../components/ui/Modal";
+// import Modal from "../components/ui/Modal";
 import randomArray from "../utils/randomArray";
 import Carousel from "../components/Carousel";
 import { ProductInterface } from "../interfaces/ProductInterface";
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
   const [allProducts, setAllProducts] = useState<ProductInterface[] | null>(
     null
   );
-  const [showCartModal, setShowCartModal] = useState<boolean>(true);
+  // const [showCartModal, setShowCartModal] = useState<boolean>(true);
   const { banners } = useBannerService({
     url: "/data/banners.json"
   });
@@ -57,13 +57,13 @@ const Home: React.FC = () => {
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-[100px]
         place-content-center side-space my-5 pt-5 pb-12"
       >
-        <Modal
+        {/* <Modal
           onClose={() => setShowCartModal(false)}
           showModal={showCartModal}
           side="right"
         >
           <h1>Cart is empty</h1>
-        </Modal>
+        </Modal> */}
 
         {isLoading &&
           newArr.map((el: number) => {
