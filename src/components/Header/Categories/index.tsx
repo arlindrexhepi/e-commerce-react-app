@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useCategoryService from "../../../hooks/useCategoryService";
+import useFetchData from "../../../hooks/useFetchData";
 
 import Category from "./Category";
 import { CategoriesDataInterface } from "../../../interfaces/CategoriesDataInterface";
@@ -10,9 +10,9 @@ interface CategoriesProps {
 
 const Categories: React.FC<CategoriesProps> = ({ className }) => {
   const [showAccordion, setShowAccordion] = useState<number>(0);
-  const { data } = useCategoryService({
-    url: `${process.env.REACT_APP_CHEC_GET_CATEGORIES}`
-  });
+  const { data } = useFetchData<CategoriesDataInterface[]>(
+    `${process.env.REACT_APP_CHEC_GET_CATEGORIES}`
+  );
   return (
     <div className={className}>
       <nav className="nav-bar relative active side-space flex items-center py-1">

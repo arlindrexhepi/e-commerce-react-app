@@ -8,13 +8,13 @@ interface Options {
 }
 
 const useBannerService = (options: Options) => {
-  const [data, setData] = useState<CarouselImagesInterface | null>(null);
+  const [banners, setBanners] = useState<CarouselImagesInterface | null>(null);
 
   const getData = async () => {
     const collectedData = await axios.get<CarouselImagesInterface, any>(
       options.url
     );
-    setData(collectedData.data);
+    setBanners(collectedData.data);
   };
   useEffect(() => {
     try {
@@ -23,6 +23,6 @@ const useBannerService = (options: Options) => {
       console.error(err, new Error("Something went wrong!!"));
     }
   }, [options.url]);
-  return { data };
+  return { banners };
 };
 export default useBannerService;

@@ -1,4 +1,4 @@
-export interface ProductsInterface {
+export interface ProductInterface {
   title: string;
   on_sale: boolean;
   price: number;

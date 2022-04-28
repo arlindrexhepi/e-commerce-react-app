@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import {
   AiOutlineShopping,
   AiOutlineUser,
@@ -5,6 +6,7 @@ import {
   AiOutlineSearch,
   AiOutlineClose
 } from "react-icons/ai";
+import CartContext from "../../../store/cartContext/cart-context";
 
 interface NavRightSideProps {
   showSearchBarHandler: () => void;
@@ -15,6 +17,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
   showSearchBarHandler,
   showSearchBar
 }) => {
+  const { totalAmount } = useContext(CartContext);
   return (
     <div className="flex items-center text-5xl text-black">
       {!showSearchBar ? (
@@ -44,7 +47,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
       >
         <AiOutlineShopping className="hidden md:block p-3" />
         <div className="text-xl font-semibold">
-          <span>0.00 &euro;</span>
+          <span>{totalAmount.toFixed(2)} &euro;</span>
         </div>
       </div>
     </div>

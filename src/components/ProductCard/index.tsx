@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
 
-import { ProductsInterface } from "../../interfaces/ProductsInterface";
+import { ProductInterface } from "../../interfaces/ProductInterface";
 import RatingStars from "./RatingStars";
 import Button from "../ui/Button";
 import Card from "../ui/Card";
 
-const ProductCard: React.FC<ProductsInterface> = ({
+const ProductCard: React.FC<ProductInterface> = ({
   _id,
   category,
   on_sale,
