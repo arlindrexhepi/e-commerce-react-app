@@ -1,15 +1,17 @@
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, memo } from "react";
 import useWindowResize from "../hooks/useWindowResize";
 import useBannerService from "../hooks/useBannerService";
 import useFetchData from "../hooks/useFetchData";
 
 // import Modal from "../components/ui/Modal";
+import Products from "../components/Products";
 import randomArray from "../utils/randomArray";
 import Carousel from "../components/Carousel";
 import { ProductInterface } from "../interfaces/ProductInterface";
-import ProductCard from "../components/ProductCard";
 import ProductCardSkeleton from "../components/ui/ProductCardSkeleton";
 import Button from "../components/ui/Button";
+
+const MemoedProducts = memo(Products);
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -27,6 +29,7 @@ const Home: React.FC = () => {
     `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
   );
   const newArr = useMemo(() => randomArray(limit), [limit]);
+  const memoProps = useMemo(() => allProducts, [allProducts]);
 
   useEffect(() => {
     if (data) {
@@ -38,7 +41,7 @@ const Home: React.FC = () => {
       });
       setIsLoading(false);
     }
-  }, [banners, data]);
+  }, [data]);
 
   const showCarosel = (): JSX.Element | null => {
     if (banners && windowInnerWidth <= 768) {
@@ -69,23 +72,7 @@ const Home: React.FC = () => {
           newArr.map((el: number) => {
             return <ProductCardSkeleton key={el} />;
           })}
-        {!isLoading &&
-          allProducts &&
-          allProducts.map((el: ProductInterface) => {
-            return (
-              <ProductCard
-                key={el._id}
-                _id={el._id}
-                title={el.title}
-                thumbnail={el.thumbnail}
-                category={el.category}
-                price={el.price}
-                rating={el.rating}
-                on_sale={el.on_sale}
-                new_price={el.new_price}
-              />
-            );
-          })}
+        {!isLoading && memoProps && <MemoedProducts allProducts={memoProps} />}
       </div>
       <div className="w-full flex items-center justify-center">
         <Button
