@@ -11,7 +11,7 @@ interface CategoriesProps {
 const Categories: React.FC<CategoriesProps> = ({ className }) => {
   const [showAccordion, setShowAccordion] = useState<number>(0);
   const { data } = useFetchData<CategoriesDataInterface[]>(
-    `${process.env.REACT_APP_CHEC_GET_CATEGORIES}`
+    "/data/categories.json"
   );
   return (
     <div className={className}>
@@ -20,13 +20,13 @@ const Categories: React.FC<CategoriesProps> = ({ className }) => {
           data.map((category: CategoriesDataInterface, index: number) => {
             return (
               <Category
-                key={category.name}
+                key={category.categoryId}
                 categoryIndex={index + 1}
                 categoryName={category.name}
                 onSetShowAccordion={setShowAccordion}
                 showAccordion={showAccordion}
-                accordionImages={category.images}
                 subCategories={category.childs}
+                categoryId={category.categoryId}
               />
             );
           })}

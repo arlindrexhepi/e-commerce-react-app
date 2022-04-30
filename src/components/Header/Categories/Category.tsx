@@ -2,21 +2,21 @@ import { SetStateAction, Dispatch } from "react";
 import { FaCaretDown } from "react-icons/fa";
 
 import SubCategories from "./SubCategories";
+import { ChildsType } from "../../../interfaces/CategoriesDataInterface";
 
 export interface CategoriesInterface {
   categoryName?: string;
   showAccordion: number;
+  categoryId?: string;
   onSetShowAccordion: Dispatch<SetStateAction<number>>;
-  accordionImages: string[];
-  subCategories: string[];
+  subCategories: ChildsType[];
   categoryIndex: number;
 }
 
 const Category: React.FC<CategoriesInterface> = ({
-  categoryName: categoryTitle,
+  categoryName,
   showAccordion,
   onSetShowAccordion,
-  accordionImages,
   subCategories,
   categoryIndex
 }) => {
@@ -28,10 +28,9 @@ const Category: React.FC<CategoriesInterface> = ({
         onMouseEnter={() => onSetShowAccordion(categoryIndex)}
         onMouseLeave={() => onSetShowAccordion(0)}
       >
-        <p>{categoryTitle}</p> <FaCaretDown className="ml-1 text-2xl p-1" />
+        <p>{categoryName}</p> <FaCaretDown className="ml-1 text-2xl p-1" />
       </div>
       <SubCategories
-        accordionImages={accordionImages}
         showAccordion={showAccordion}
         onSetShowAccordion={onSetShowAccordion}
         subCategories={subCategories}

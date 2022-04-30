@@ -10,14 +10,15 @@ const ProductPage = () => {
   const { data } = useFetchData<ProductInterface>(
     `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
   );
-  console.log(id);
-  console.log(data, "product");
   if (!id) {
+    console.log("okej");
     return <NotFound />;
   }
   return (
     <div className="main-container flex flex-col items-center justify-center">
-      <h1 className="text-2xl font-semibold text-secondary">PRODUCT PAGE</h1>
+      <h1 className="text-2xl font-semibold text-secondary">
+        PRODUCT PAGE IS NOT FINISHED YET!
+      </h1>
       {data && (
         <ProductCard
           key={data._id}

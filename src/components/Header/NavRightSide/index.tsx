@@ -1,4 +1,4 @@
-import { useContext } from "react";
+// import { useContext } from "react";
 import {
   AiOutlineShopping,
   AiOutlineUser,
@@ -6,7 +6,7 @@ import {
   AiOutlineSearch,
   AiOutlineClose
 } from "react-icons/ai";
-import CartContext from "../../../store/cartContext/cart-context";
+// import CartContext from "../../../store/cartContext/cart-context";
 
 interface NavRightSideProps {
   showSearchBarHandler: () => void;
@@ -17,7 +17,8 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
   showSearchBarHandler,
   showSearchBar
 }) => {
-  const { totalAmount } = useContext(CartContext);
+  // const { totalAmount } = useContext(CartContext);
+  const totalAmount = 0;
   return (
     <div className="flex items-center text-5xl text-black">
       {!showSearchBar ? (

@@ -3,7 +3,6 @@ import { CategoriesInterface } from "./Category";
 
 const SubCategories: React.FC<CategoriesInterface> = ({
   showAccordion,
-  accordionImages,
   onSetShowAccordion,
   subCategories,
   categoryIndex
@@ -20,18 +19,24 @@ const SubCategories: React.FC<CategoriesInterface> = ({
       onMouseEnter={() => onSetShowAccordion(categoryIndex)}
       onMouseLeave={() => onSetShowAccordion(0)}
     >
-      <div className="flex items-center justify-around gap-x-4 gap-y-2">
-        {subCategories.map((subCategory: string) => {
+      <div className="flex items-center justify-around">
+        {subCategories.map((subCategory: { title: string; image: string }) => {
+          const categoryLinks = subCategory.title.replace(/\s+/g, "");
           return (
-            <Link key={subCategory} to="/">
-              <p>{subCategory}</p>
+            <Link key={subCategory.title} to={`/${categoryLinks}`}>
+              <div
+                className="p-3 rounded gap-x-4 gap-y-2 flex flex-col items-center
+                justify-center hover:bg-grey"
+              >
+                <p>{subCategory.title}</p>
+                <img
+                  className="max-w-[90px]"
+                  src={subCategory.image}
+                  alt={subCategory.title}
+                />
+              </div>
             </Link>
           );
-        })}
-      </div>
-      <div className="flex items-center justify-around gap-x-4 gap-y-2">
-        {accordionImages.map((el: string) => {
-          return <img key={el} className="max-w-[80px]" src={el} alt={el} />;
         })}
       </div>
     </div>
