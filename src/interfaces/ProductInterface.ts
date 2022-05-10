@@ -7,6 +7,7 @@ export interface ProductInterface {
   category: Category;
   rating: number;
   thumbnail: string;
+  addItem: () => void;
   images?: string[];
   _id: string;
   createdAt?: Date;

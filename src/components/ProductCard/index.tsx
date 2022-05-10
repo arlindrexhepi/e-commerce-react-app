@@ -14,7 +14,8 @@ const ProductCard: React.FC<ProductInterface> = ({
   rating,
   thumbnail,
   title,
-  new_price
+  new_price,
+  addItem
 }) => {
   return (
     <Card
@@ -63,6 +64,7 @@ const ProductCard: React.FC<ProductInterface> = ({
         absolute top-[100%] px-4 flex items-center py-4 justify-center w-full"
       >
         <Button
+          onClick={addItem}
           className="flex items-center justify-center bg-secondary rounded
           hover:bg-darkSecondary font-semibold py-2 px-4 text-white w-[80%]"
         >

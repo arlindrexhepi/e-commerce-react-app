@@ -1,28 +1,17 @@
-import React from "react";
+import { createContext } from "react";
 import { ProductInterface } from "../../interfaces/ProductInterface";
 
-type MappedProductsType = {
-  [key: string]: { product: ProductInterface; qty: number };
-};
-
-export type InitialContextType = {
-  products: MappedProductsType[] | null;
-  totalAmount: number;
-  addItem: (item: ProductInterface) => void;
-  removeItem: (itemId: string) => void;
-};
-
-export const initialState: InitialContextType = {
-  products: null,
+const initialState = {
+  products: new Map<string, { product: ProductInterface; qty: number }>(),
   totalAmount: 0,
-  addItem: (item) => {
+  addItem: (item: ProductInterface): ProductInterface | void => {
     return item;
   },
-  removeItem: (itemId) => {
+  removeItem: (itemId: string): string | void => {
     return itemId;
   }
 };
 
-const CartContext = React.createContext(initialState);
+const CartContext = createContext(initialState);
 
 export default CartContext;

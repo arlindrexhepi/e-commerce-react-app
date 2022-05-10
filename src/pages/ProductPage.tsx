@@ -3,7 +3,6 @@ import useFetchData from "../hooks/useFetchData";
 import NotFound from "./NotFound";
 
 import { ProductInterface } from "../interfaces/ProductInterface";
-import ProductCard from "../components/ProductCard";
 
 const ProductPage = () => {
   const { id } = useParams();
@@ -11,7 +10,6 @@ const ProductPage = () => {
     `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
   );
   if (!id) {
-    console.log("okej");
     return <NotFound />;
   }
   return (
@@ -20,18 +18,14 @@ const ProductPage = () => {
         PRODUCT PAGE IS NOT FINISHED YET!
       </h1>
       {data && (
-        <ProductCard
-          key={data._id}
-          _id={data._id}
-          category={data.category}
-          on_sale={data.on_sale}
-          price={data.price}
-          rating={data.rating}
-          thumbnail={data.thumbnail}
-          title={data.title}
-          description={data.description}
-          new_price={data.new_price}
-        />
+        <div>
+          <p>{data._id}</p>
+          <p>{data.category}</p>
+          <p>{data.description}</p>
+          <p>{data.new_price}</p>
+          <p>{data.on_sale}</p>
+          <p>{data.thumbnail}</p>
+        </div>
       )}
       <div className="flex items-center justify-center py-4">
         {data &&

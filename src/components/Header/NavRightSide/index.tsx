@@ -1,4 +1,6 @@
-// import { useContext } from "react";
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useContext } from "react";
 import {
   AiOutlineShopping,
   AiOutlineUser,
@@ -6,19 +8,20 @@ import {
   AiOutlineSearch,
   AiOutlineClose
 } from "react-icons/ai";
-// import CartContext from "../../../store/cartContext/cart-context";
+import CartContext from "../../../store/cartContext/cart-context";
 
 interface NavRightSideProps {
-  showSearchBarHandler: () => void;
   showSearchBar: boolean;
+  showSearchBarHandler: () => void;
+  showCartHandler: () => void;
 }
 
 const NavRightSide: React.FC<NavRightSideProps> = ({
+  showSearchBar,
   showSearchBarHandler,
-  showSearchBar
+  showCartHandler
 }) => {
-  // const { totalAmount } = useContext(CartContext);
-  const totalAmount = 0;
+  const { totalAmount } = useContext(CartContext);
   return (
     <div className="flex items-center text-5xl text-black">
       {!showSearchBar ? (
@@ -43,6 +46,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
        lg:cursor-pointer p-3 rounded-full"
       />
       <div
+        onClick={showCartHandler}
         className="flex items-center mx-1 pr-2 py-2 md:mx-3 select-none
         hover:bg-lightGrey lg:cursor-pointer rounded-full"
       >
