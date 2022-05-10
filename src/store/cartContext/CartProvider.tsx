@@ -1,12 +1,10 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
 import React, { useReducer } from "react";
-import CartContext, { InitialContextType } from "./cart-context";
+import CartContext from "./cart-context";
 
 import { initialCartState, cartReducer } from "./cart-reducer";
 import { ProductInterface } from "../../interfaces/ProductInterface";
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  // const [cartState, setCartState] = useState<CartType>(initialState);
   const [cartState, dispatchCart] = useReducer(cartReducer, initialCartState);
 
   const addToCartHandler = (item: ProductInterface) => {
@@ -23,18 +21,15 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  const UpdatedCartContext: InitialContextType = {
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
+  const value = {
     products: cartState.products,
     totalAmount: cartState.totalAmount,
     addItem: addToCartHandler,
     removeItem: removeFromCartHandler
   };
 
-  return (
-    <CartContext.Provider value={UpdatedCartContext}>
-      {children}
-    </CartContext.Provider>
-  );
+  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
 
 export default CartProvider;

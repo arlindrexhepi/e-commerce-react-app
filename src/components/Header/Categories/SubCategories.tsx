@@ -26,7 +26,7 @@ const SubCategories: React.FC<CategoriesInterface> = ({
             <Link key={subCategory.title} to={`/${categoryLinks}`}>
               <div
                 className="p-3 rounded gap-x-4 gap-y-2 flex flex-col items-center
-                justify-center hover:bg-grey"
+                justify-center hover:bg-lightGrey"
               >
                 <p>{subCategory.title}</p>
                 <img

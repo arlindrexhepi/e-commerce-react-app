@@ -1,21 +1,27 @@
+import { useContext } from "react";
+import CartContext from "../../store/cartContext/cart-context";
+
 import ProductCard from "../ProductCard";
 import { ProductInterface } from "../../interfaces/ProductInterface";
 
 const Products = ({ allProducts }: { allProducts: ProductInterface[] }) => {
+  const { addItem } = useContext(CartContext);
+
   return (
     <>
-      {allProducts.map((el: ProductInterface) => {
+      {allProducts.map((item: ProductInterface) => {
         return (
           <ProductCard
-            key={el._id}
-            _id={el._id}
-            title={el.title}
-            thumbnail={el.thumbnail}
-            category={el.category}
-            price={el.price}
-            rating={el.rating}
-            on_sale={el.on_sale}
-            new_price={el.new_price}
+            key={item._id}
+            _id={item._id}
+            title={item.title}
+            thumbnail={item.thumbnail}
+            category={item.category}
+            price={item.price}
+            rating={item.rating}
+            on_sale={item.on_sale}
+            new_price={item.new_price}
+            addItem={() => addItem(item)}
           />
         );
       })}
