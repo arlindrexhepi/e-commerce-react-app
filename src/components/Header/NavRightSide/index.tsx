@@ -23,7 +23,7 @@ const NavRightSide: React.FC<NavRightSideProps> = ({
 }) => {
   const { totalAmount } = useContext(CartContext);
   return (
-    <div className="flex items-center text-5xl text-black">
+    <div className="flex items-center text-5xl text-black md:w-1/4">
       {!showSearchBar ? (
         <AiOutlineSearch
           onClick={showSearchBarHandler}
