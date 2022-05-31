@@ -1,22 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useFetchData = <S>(
-  url: string
-): {
-  data: S | null;
-  done: boolean;
-} => {
+const useFetchData = <S>(url: string): { data: S | null; done: boolean } => {
   const [data, setData] = useState<S | null>(null);
   const [done, setDone] = useState(false);
 
-  const fetchReq = async () => {
-    const collectedData = await axios.get<S, any>(url);
-    setData(collectedData.data);
-    setDone(true);
-  };
-
   useEffect(() => {
+    const fetchReq = async () => {
+      const collectedData = await axios.get<S, any>(url);
+      setData(collectedData.data);
+      setDone(true);
+    };
     try {
       fetchReq();
     } catch (err) {

@@ -1,8 +1,10 @@
-import React, { useReducer } from "react";
+import React, { useReducer, memo } from "react";
 import CartContext from "./cart-context";
 
 import { initialCartState, cartReducer } from "./cart-reducer";
 import { ProductInterface } from "../../interfaces/ProductInterface";
+
+const MemoedProvider = memo(CartContext.Provider);
 
 const CartProvider = ({ children }: { children: React.ReactNode }) => {
   const [cartState, dispatchCart] = useReducer(cartReducer, initialCartState);
@@ -21,7 +23,6 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     });
   };
 
-  // eslint-disable-next-line react/jsx-no-constructed-context-values
   const value = {
     products: cartState.products,
     totalAmount: cartState.totalAmount,
@@ -29,7 +30,7 @@ const CartProvider = ({ children }: { children: React.ReactNode }) => {
     removeItem: removeFromCartHandler
   };
 
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return <MemoedProvider value={value}>{children}</MemoedProvider>;
 };
 
 export default CartProvider;

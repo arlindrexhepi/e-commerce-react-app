@@ -9,7 +9,8 @@ const ProductPage = () => {
   const { data } = useFetchData<ProductInterface>(
     `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
   );
-  if (!id) {
+
+  if (id !== data?._id) {
     return <NotFound />;
   }
   return (
