@@ -56,7 +56,7 @@ const Home: React.FC = () => {
       {showCarosel()}
       <div
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-[100px]
-        place-content-center side-space my-5 pt-5 pb-12"
+        place-content-center side-space my-5 pt-5 pb-12 container mx-auto"
       >
         {isLoading &&
           newArr.map((el: number) => {

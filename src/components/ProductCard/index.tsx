@@ -21,7 +21,7 @@ const ProductCard: React.FC<ProductInterface> = ({
     <Card
       className="product-card-container w-[320px] hover:shadow-xl relative 
       flex flex-col
-      justify-center my-4"
+      justify-center my-4 justify-self-center"
     >
       <div
         className="absolute w-full px-4 py-2 left-0 top-0 flex items-center
