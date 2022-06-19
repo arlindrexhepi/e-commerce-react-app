@@ -21,10 +21,10 @@ const Home: React.FC = () => {
     null
   );
   const { banners } = useBannerService({
-    url: "/data/banners.json"
+    url: "/api/v1/banners"
   });
   const { data } = useFetchData<ProductInterface[]>(
-    `https://e-commerce-backend-app.herokuapp.com/api/products?page=${page}&limit=${limit}`
+    `/api/v1/products?page=${page}&limit=${limit}`
   );
   const newArr = useMemo(() => randomArray(limit), [limit]);
   const memoProps = useMemo(() => allProducts, [allProducts]);
