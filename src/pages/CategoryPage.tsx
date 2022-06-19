@@ -7,7 +7,7 @@ import { ProductInterface } from "../interfaces/ProductInterface";
 const CategoryPage = () => {
   const { category } = useParams();
   const { data } = useFetchData<ProductInterface>(
-    `https://e-commerce-backend-app.herokuapp.com/api/products/${category}`
+    `/api/v1/products/${category}`
   );
 
   if (category !== data?.category) {

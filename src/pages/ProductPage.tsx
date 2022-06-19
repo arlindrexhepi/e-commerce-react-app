@@ -6,9 +6,7 @@ import { ProductInterface } from "../interfaces/ProductInterface";
 
 const ProductPage = () => {
   const { id } = useParams();
-  const { data } = useFetchData<ProductInterface>(
-    `https://e-commerce-backend-app.herokuapp.com/api/products/${id}`
-  );
+  const { data } = useFetchData<ProductInterface>(`/api/v1/products/${id}`);
 
   if (id !== data?._id) {
     return <NotFound />;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import instance from "../api/axiosInstance";
 
 const useFetchData = <S>(url: string): { data: S | null; done: boolean } => {
   const [data, setData] = useState<S | null>(null);
@@ -7,7 +7,7 @@ const useFetchData = <S>(url: string): { data: S | null; done: boolean } => {
 
   useEffect(() => {
     const fetchReq = async () => {
-      const collectedData = await axios.get<S, any>(url);
+      const collectedData = await instance.get<S, any>(url);
       setData(collectedData.data);
       setDone(true);
     };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import instance from "../api/axiosInstance";
 
 import { CarouselImagesInterface } from "../interfaces/CaroselImagesInterface";
 
@@ -11,10 +11,10 @@ const useBannerService = (options: Options) => {
   const [banners, setBanners] = useState<CarouselImagesInterface | null>(null);
 
   const getData = async () => {
-    const collectedData = await axios.get<CarouselImagesInterface, any>(
+    const collectedData = await instance.get<CarouselImagesInterface, any>(
       options.url
     );
-    setBanners(collectedData.data);
+    setBanners(collectedData.data[0]);
   };
   useEffect(() => {
     try {
